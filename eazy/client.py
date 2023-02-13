@@ -27,9 +27,6 @@ class Client:
                 data=json.dumps(params),
                 **kwargs,
             )
-            print("endpoint", API_ENDPOINT + path)
-            print("data", json.dumps(params))
-
             return response.json()
 
         except requests.RequestException as e:

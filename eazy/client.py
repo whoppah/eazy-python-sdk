@@ -42,6 +42,23 @@ class Client:
             f"/channels/{channelJid}/messages/{contactJid}", "POST", params
         )
 
+    def contacts_create(self, channelJid: str = None, params=None):
+        return self.request(f"/channels/{channelJid}/contacts", "POST", params)
+
+    def contacts_read(
+        self, channelJid: str = None, contactJid: str = None, params=None
+    ):
+        return self.request(
+            f"/channels/{channelJid}/contacts/{contactJid}", "GET", params
+        )
+
+    def contacts_update(
+        self, channelJid: str = None, contactJid: str = None, params=None
+    ):
+        return self.request(
+            f"/channels/{channelJid}/contacts/{contactJid}", "PATCH", params
+        )
+
 
 class EazyException(Exception):
     def __init__(self, result):

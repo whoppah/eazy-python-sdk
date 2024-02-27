@@ -56,6 +56,11 @@ class Client:
             f"/channels/{channelJid}/contacts/{contactJid}", "PATCH", params
         )
 
+    def add_comment(self, channelJid: str = None, contactJid: str = None, params=None):
+        return self.request(
+            f"/channels/{channelJid}/conversations/{contactJid}/comments", "POST", params
+        )
+
 
 class EazyException(Exception):
     def __init__(self, result):
